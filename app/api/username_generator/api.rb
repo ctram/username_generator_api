@@ -6,7 +6,7 @@ module UsernameGenerator
 
     resource do
       get :something_random do
-        { asd: '22222' }
+        Usernames.generate
       end
     end
   end
