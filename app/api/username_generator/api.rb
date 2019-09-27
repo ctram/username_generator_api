@@ -6,9 +6,7 @@ module UsernameGenerator
 
     resource do
       get :generate_random_username do
-        options = { case: params[:case] }
-
-        { username: Usernames.generate(options) }
+        { username: Usernames.generate(params) }
       end
     end
   end

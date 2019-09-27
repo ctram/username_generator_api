@@ -1,14 +1,18 @@
 module Usernames
-  def self.generate(options = { case: 'snake' })
+  def self.generate(options = { case: 'snake', capitalize: false })
     base_path = File.join(Dir.pwd, 'lib')
     adjectives = File.open(base_path + '/adjectives.txt', 'r').readlines(chomp: true)
     nouns = File.open(base_path + '/nouns.txt', 'r').readlines(chomp: true)
 
-    words = "#{adjectives.sample} #{nouns.sample}".split(' ')
+    words = "#{adjectives.sample.downcase} #{nouns.sample.downcase}".split(' ')
+
+    if options[:case] == 'camel' || options[:capitalize] == 'true'
+      words.map!(&:capitalize)
+    end
 
     case options[:case].to_sym
     when :camel
-      words.map{ |w| w.capitalize }.join('')
+      words.join('')
     when :snake
       words.join('_')
     when :hyphen
