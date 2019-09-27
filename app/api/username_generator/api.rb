@@ -5,8 +5,10 @@ module UsernameGenerator
     prefix :api
 
     resource do
-      get :something_random do
-        { username: Usernames.generate }
+      get :generate_random_username do
+        options = { case: params[:case] }
+
+        { username: Usernames.generate(options) }
       end
     end
   end
