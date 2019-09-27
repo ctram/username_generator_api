@@ -23,4 +23,14 @@ module Usernames
       words
     end
   end
+
+  def self.generate_usernames(num = 1, options)
+    usernames = []
+
+    num.times do
+      usernames << generate(options)
+    end
+
+    usernames
+  end
 end

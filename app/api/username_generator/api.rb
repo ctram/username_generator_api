@@ -6,7 +6,10 @@ module UsernameGenerator
 
     resource do
       get :generate_random_username do
-        { username: Usernames.generate(params) }
+        num_usernames_to_show = params.delete(:num_usernames_to_show).to_i
+
+        { usernames: Usernames.generate_usernames(num_usernames_to_show, params)
+        }
       end
     end
   end
