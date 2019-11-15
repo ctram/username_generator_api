@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 gem 'grape', '~> 1.2.4'
-gem 'rack-cors', '~> 1.0.3'
+gem 'rack-cors', '~> 1.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
